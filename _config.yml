@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Lorem ipsum"
-description              : "PhD student at NC State University with a focus on high-performance computing and data management. Passionate about advancing research in persistent memory and AI/ML optimization."
+description              : "PhD student at NC State University with a focus on high-performance computing. Passionate about advancing research in persistent memory and AI/ML optimization."
 repository               : "RayeRen/acad-homepage.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -28,7 +28,7 @@ author:
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en"
-  email            : "Lorem@ipsum.com"
+  email            : "ghu4@ncsu.edu"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
