@@ -19,10 +19,11 @@ redirect_from:
 
 I'm currently a PhD student in the <a href='https://systems.csc.ncsu.edu/'> NCSU Systems Lab </a> department of Computer Science at NC State University advised by <a href='https://arcb.csc.ncsu.edu/~mueller/'> Prof. Frank Mueller </a>.  Prior to that, I earned my Master degree at <a href='http://english.wnlo.hust.edu.cn/'> Wuhan National Laboratory for Optoelectronics (WNLO) </a> at <a hred='https://english.hust.edu.cn/'> Huazhong University of Science and Technology (HUST) </a> under the supervise of <a href='http://idsm.wnlo.hust.edu.cn/index.htm'> Prof. Ke Zhou </a>. And I receive my Bacholar degree at <a href='https://en.hainanu.edu.cn/'> Hainan University </a>. 
 
+My Research interest mainly focused on the System Architecture, High Performance Computer and Storage techniques (e.g. Persistent Memory and CXL memory).
 <!-- I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
 # 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2024.10*: &nbsp;🎉🎉 Excited to share that my poster has been accepted for SC 2024! Looking forward to attending the conference in Atlanta.
+- *2023.08*: &nbsp;🎉🎉 Began my PhD journey at NC State University!
 
 # 📝 Publications 
 
@@ -45,8 +46,18 @@ I'm currently a PhD student in the <a href='https://systems.csc.ncsu.edu/'> NCSU
 - *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 
 # 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *08/2023 – Present*, **North Carolina State University**, Raleigh, NC  
+  Ph.D. candidate in Computer Science (Advisor: Prof. Frank Mueller)  
+
+- *09/2019 – 06/2023*, **Huazhong University of Science and Technology**, Wuhan, China  
+  M.Sc. in Computer System Architecture  
+  - **Thesis**: Research on Performance Anomaly Detection and Root Cause Analysis for Storage Systems in Data Centers  
+  - **Advisor**: Prof. Ke Zhou  
+  - **Focus**: Data Center, Storage System, Anomaly Detection, Root Cause Analysis, Machine Learning  
+
+- *09/2015 – 06/2019*, **Hainan University**, Haikou, China  
+  B.Eng. in Computer Science and Technology  
+
 
 # 💬 Invited Talks
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
