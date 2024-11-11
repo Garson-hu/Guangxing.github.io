@@ -61,7 +61,7 @@ My Research interest mainly focused on the System Architecture, High Performance
   *SC, 2024.*
 
 ## Publications
-1. Tianming Jiang, Yunchuan Guan, Ke Zhou, [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Ji Zhang, Wei Fang, Zhuo Cheng, Ping Huang.  
+1. Yu Liu, Yunchuan Guan, Tianming Jiang, Ke Zhou, Hua Wang, [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Ji Zhang, Wei Fang, Zhuo Cheng, Ping Huang.  
    **"SPAE: Lifelong Disk Failure Prediction via End-to-End GAN-based Anomaly Detection with Ensemble Update."**  
    *Future Generation Computer Systems, 2023.*
 
@@ -72,7 +72,6 @@ My Research interest mainly focused on the System Architecture, High Performance
 3. Yangtao Wang, Yanzhao Xie, Lisheng Fan, [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en).  
    **"STMG: Swin transformer for multi-label image recognition with graph convolution network."**  
    *Neural Computing and Applications, 2021.*
-
 
 
 # 🎖 Honors and Awards
