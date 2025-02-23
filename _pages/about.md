@@ -119,5 +119,5 @@ During my internship at ORNL, I focused on enhancing high-performance computing 
   - **Developing a PM-Backed Caching Layer**: By leveraging the byte-addressability of PM, I introduced a new cache tier that further accelerates deep learning training while reducing unnecessary data transfers. A key aspect was using the Direct Access (DAX) mode on PM, which allows for faster read/write speeds compared to SSDs or file systems built on top of PM. The details of this work can be seen at my [Github](https://github.com/Garson-hu/HVAC_ARC).
   - **Preliminary Results and SC Poster**: Preliminary benchmarks demonstrated significant improvements in I/O performance, and these findings were consolidated into a poster—[A Zero-Copy Storage with Metadata-Driven File Management Using Persistent Memory](https://sc24.supercomputing.org/proceedings/poster/poster_files/post209s2-file3.pdf)—accepted at SC 2024.  
 
+ # 🔖 Projects (TBA)
 
-  # 🔖 Projects (TBA)
