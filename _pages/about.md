@@ -120,5 +120,8 @@ During my internship at ORNL, I focused on enhancing high-performance computing 
   - **Preliminary Results and SC Poster**: Preliminary benchmarks demonstrated significant improvements in I/O performance, and these findings were consolidated into a poster—[A Zero-Copy Storage with Metadata-Driven File Management Using Persistent Memory](https://sc24.supercomputing.org/proceedings/poster/poster_files/post209s2-file3.pdf)—accepted at SC 2024.  
 
 
+# 💬 Talks
+- *2025.08*, Leveraging Memory Hierarchies for Scalable Caching in Deep Learning I/O on HPC Systems, Oak Ridge, TN, USA. 
+
 # 🔖 Projects (TBA)
 
