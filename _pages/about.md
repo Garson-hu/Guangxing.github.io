@@ -66,6 +66,7 @@ My Research interest mainly focused on the System Architecture, High Performance
   *SC, 2024.*
 
 ## Publications
+\* These authors contributed equally to this work.
 
 1. [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Awais Khan, Christopher zimmer, Michael Brim, Frank Mueller.  
    **"FitCache: A Transparent Drop-In Framework for Multi-Tier Caching to Accelerate Distributed Deep Learning Workloads."**  
@@ -75,7 +76,7 @@ My Research interest mainly focused on the System Architecture, High Performance
    **"SPAE: Lifelong Disk Failure Prediction via End-to-End GAN-based Anomaly Detection with Ensemble Update."**  
    *Future Generation Computer Systems, 2023.*
 
-1. Yanzhao Xie*, [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en)*, Yu Liu, Zhiqiu Lin, Ke Zhou, Yuhong Zhao.  
+1. Yanzhao Xie\*, [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en)\*, Yu Liu, Zhiqiu Lin, Ke Zhou, Yuhong Zhao.  
    **"How Visual Chirality Affects the Performance of Image Hashing."**  
    *Neural Computing and Applications, 2022.*
 
