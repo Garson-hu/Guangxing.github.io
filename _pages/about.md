@@ -62,13 +62,13 @@ My Research interest mainly focused on the System Architecture, High Performance
 
 ## Poster
 - [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Awais Khan, Frank Mueller.  
-  **"A Zero-Copy Storage with Metadata-Driven File Management Using Persistent Memory."**  
+  **"A Zero-Copy Storage with Metadata-Driven File Management Using Persistent Memory."**    
   *SC, 2024.*
 
 ## Publications
 1. [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Awais Khan, Christopher zimmer, Michael Brim, Frank Mueller. 
    **"FitCache: A Transparent Drop-In Framework for Multi-Tier Caching to Accelerate Distributed Deep Learning Workloads."**
-   *IPDPS, 2026. New Orleans*
+   *IPDPS, 2026. New Orleans.*
 
 
 1. Yu Liu, Yunchuan Guan, Tianming Jiang, Ke Zhou, Hua Wang, [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Ji Zhang, Wei Fang, Zhuo Cheng, Ping Huang.  
