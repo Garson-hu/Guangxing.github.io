@@ -75,11 +75,11 @@ My Research interest mainly focused on the System Architecture, High Performance
    **"SPAE: Lifelong Disk Failure Prediction via End-to-End GAN-based Anomaly Detection with Ensemble Update."**  
    *Future Generation Computer Systems, 2023.*
 
-2. Yanzhao Xie*, [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en)*, Yu Liu, Zhiqiu Lin, Ke Zhou, Yuhong Zhao.  
+1. Yanzhao Xie*, [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en)*, Yu Liu, Zhiqiu Lin, Ke Zhou, Yuhong Zhao.  
    **"How Visual Chirality Affects the Performance of Image Hashing."**  
    *Neural Computing and Applications, 2022.*
 
-3. Yangtao Wang, Yanzhao Xie, Lisheng Fan, [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en).  
+1. Yangtao Wang, Yanzhao Xie, Lisheng Fan, [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en).  
    **"STMG: Swin transformer for multi-label image recognition with graph convolution network."**  
    *Neural Computing and Applications, 2021.*
 
