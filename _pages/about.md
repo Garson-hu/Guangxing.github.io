@@ -66,10 +66,10 @@ My Research interest mainly focused on the System Architecture, High Performance
   *SC, 2024.*
 
 ## Publications
-1. [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Awais Khan, Christopher zimmer, Michael Brim, Frank Mueller. 
-   **"FitCache: A Transparent Drop-In Framework for Multi-Tier Caching to Accelerate Distributed Deep Learning Workloads."**
-   *IPDPS 2026, New Orleans, USA.*
 
+1. [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Awais Khan, Christopher zimmer, Michael Brim, Frank Mueller.  
+   **"FitCache: A Transparent Drop-In Framework for Multi-Tier Caching to Accelerate Distributed Deep Learning Workloads."**  
+   *IPDPS 2026, New Orleans, USA.*
 
 1. Yu Liu, Yunchuan Guan, Tianming Jiang, Ke Zhou, Hua Wang, [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Ji Zhang, Wei Fang, Zhuo Cheng, Ping Huang.  
    **"SPAE: Lifelong Disk Failure Prediction via End-to-End GAN-based Anomaly Detection with Ensemble Update."**  
