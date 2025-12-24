@@ -29,7 +29,7 @@ My Research interest mainly focused on the System Architecture, High Performance
 # 🔥 News
 - *2025.12*: &nbsp;🏆🏆 Our work **FitCache** has been accepted to **IPDPS 2026**. See you in New Orleans!
 - *2025.10*: &nbsp;🎉🎉 Passed the PhD Written Preliminary Exam. Thanks to everyone for the support!
-- *2024.10*: &nbsp;🎉🎉 Poster accepted at **SC 2024**. Looking forward to presenting in Atlanta.
+- *2024.10*: &nbsp;🏆🏆 Poster accepted at **SC 2024**. Looking forward to presenting in Atlanta.
 - *2023.08*: &nbsp;🎓 Started my PhD journey at NC State University!
 
 # 📖 Educations
