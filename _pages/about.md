@@ -27,9 +27,10 @@ My Research interest mainly focused on the System Architecture, High Performance
 <!-- I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
 
 # 🔥 News
-- *2025.12*: &nbsp;🎉🎉 Excited to share that our work FitCache has been accepted for IPDPS 2026! See you in New Orleans.
-- *2024.10*: &nbsp;🎉🎉 Excited to share that my poster has been accepted for SC 2024! Looking forward to attending the conference in Atlanta.
-- *2023.08*: &nbsp;🎉🎉 Began my PhD journey at NC State University!
+- *2025.12*: &nbsp;🏆🏆 Our work **FitCache** has been accepted to **IPDPS 2026**. See you in New Orleans!
+- *2025.10*: &nbsp;🎉🎉 Passed the PhD Written Preliminary Exam. Thanks to everyone for the support!
+- *2024.10*: &nbsp;🎉🎉 Poster accepted at **SC 2024**. Looking forward to presenting in Atlanta.
+- *2023.08*: &nbsp;🎓 Started my PhD journey at NC State University!
 
 # 📖 Educations
 - *08/2023 – Present*, **North Carolina State University**, Raleigh, NC  
