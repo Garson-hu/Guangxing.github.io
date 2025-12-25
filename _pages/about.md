@@ -103,14 +103,14 @@ My Research interest mainly focused on the System Architecture, High Performance
     <span style="display: inline-block; width: 85%;"><b>The Principal Scholarships of Hainan University (Top 2%)</b></span>
     <span style="float: right;"><i>2018</i></span>
   </li>
-  <li>
+  <!-- <li>
     <span style="display: inline-block; width: 85%;"><b>The Most Innovative and Outstanding Student Award of Hainan University</b></span>
     <span style="float: right;"><i>2018</i></span>
   </li>
   <li>
     <span style="display: inline-block; width: 85%;"><b>The Second Scholarships of Hainan University</b></span>
     <span style="float: right;"><i>2016, 2017</i></span>
-  </li>
+  </li> -->
 </ul>
 
 
