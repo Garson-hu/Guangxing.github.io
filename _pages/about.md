@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I'm currently a PhD student in the <a href='https://systems.csc.ncsu.edu/'> NCSU Systems Lab </a> department of Computer Science at NC State University advised by <a href='https://arcb.csc.ncsu.edu/~mueller/'> Prof. Frank Mueller</a>.  Prior to that, I earned my Master degree at Wuhan National Laboratory for Optoelectronics (<a href='http://english.wnlo.hust.edu.cn/'>WNLO) </a> at Huazhong University of Science and Technology (HUST) </a> under the supervise of <a href='http://idsm.wnlo.hust.edu.cn/index.htm'> Prof. Ke Zhou</a>. And I receive my Bacholar degree at Hainan University </a>. 
+I'm currently a PhD student in the <a href='https://systems.csc.ncsu.edu/'> NCSU Systems Lab </a> department of Computer Science at NC State University advised by <a href='https://arcb.csc.ncsu.edu/~mueller/'> Prof. Frank Mueller</a>.  Prior to that, I earned my Master degree at Wuhan National Laboratory for Optoelectronics (<a href='http://english.wnlo.hust.edu.cn/'>WNLO) </a> at Huazhong University of Science and Technology (HUST) under the supervise of <a href='http://idsm.wnlo.hust.edu.cn/index.htm'> Prof. Ke Zhou</a>. And I receive my Bacholar degree at Hainan University </a>. 
 
 My Research interest mainly focused on the System Architecture, High Performance Computer and Storage techniques (e.g. Persistent Memory and CXL memory).
 
