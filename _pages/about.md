@@ -61,7 +61,6 @@ My Research interest mainly focused on the System Architecture, High Performance
 
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020** -->
 
-## Publications
 \* These authors contributed equally to this work.
 
 1. [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Awais Khan, Christopher zimmer, Michael Brim, Frank Mueller.  
