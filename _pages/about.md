@@ -33,7 +33,7 @@ My Research interest mainly focused on the System Architecture, High Performance
 - *2023.08*: &nbsp;🎓 Started my PhD journey at NC State University!
 
 # 📖 Educations
-- *08/2023 – Present*, **North Carolina State University**, Raleigh, NC  
+- *08/2023 – Present*, **North Carolina State University**, Raleigh, USA  
   Ph.D. candidate in Computer Science (Advisor: Prof. Frank Mueller)  
 
 - *09/2019 – 06/2023*, **Huazhong University of Science and Technology**, Wuhan, China  
