@@ -61,17 +61,16 @@ My Research interest mainly focused on the System Architecture, High Performance
 
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020** -->
 
-## Poster
-- [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Awais Khan, Frank Mueller.  
-  **"A Zero-Copy Storage with Metadata-Driven File Management Using Persistent Memory."**    
-  *SC, 2024.*
-
 ## Publications
 \* These authors contributed equally to this work.
 
 1. [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Awais Khan, Christopher zimmer, Michael Brim, Frank Mueller.  
    **"FitCache: A Transparent Drop-In Framework for Multi-Tier Caching to Accelerate Distributed Deep Learning Workloads."**  
    *IPDPS 2026, New Orleans, USA.*
+
+1. [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Awais Khan, Frank Mueller.  
+  **"A Zero-Copy Storage with Metadata-Driven File Management Using Persistent Memory."**    
+  *SC Poster, 2024, Atlanta, USA.*
 
 1. Yu Liu, Yunchuan Guan, Tianming Jiang, Ke Zhou, Hua Wang, [Guangxing Hu](https://scholar.google.com/citations?user=j8Yq5W8AAAAJ&hl=en), Ji Zhang, Wei Fang, Zhuo Cheng, Ping Huang.  
    **"SPAE: Lifelong Disk Failure Prediction via End-to-End GAN-based Anomaly Detection with Ensemble Update."**  
@@ -122,10 +121,7 @@ My Research interest mainly focused on the System Architecture, High Performance
 
 # 💻 Internships
 - *2024.06 - 2024.08*, [Oak Ridge National Laboratory (ORNL)](https://www.ornl.gov/), Oak Ridge, TN, USA.
-During my internship at ORNL, I focused on enhancing high-performance computing (HPC) capabilities for large-scale deep learning training. Specifically, I worked on extending the [HVAC](https://ieeexplore.ieee.org/document/9912705) framework—a caching system originally designed to utilize node-local SSD storage for data-intensive workloads—by integrating Persistent Memory (PM) to reduce I/O overhead through zero-copy access. This involved:  
-  - **Migrating and Debugging Code**: I set up and debugged the HVAC runtime environment on both ORNL’s Frontier supercomputer and NC State University’s ARC cluster, resolving MPI dependencies and configuration issues to enable consistent, multi-site functionality.  
-  - **Developing a PM-Backed Caching Layer**: By leveraging the byte-addressability of PM, I introduced a new cache tier that further accelerates deep learning training while reducing unnecessary data transfers. A key aspect was using the Direct Access (DAX) mode on PM, which allows for faster read/write speeds compared to SSDs or file systems built on top of PM. The details of this work can be seen at my [Github](https://github.com/Garson-hu/HVAC_ARC).
-  - **Preliminary Results and SC Poster**: Preliminary benchmarks demonstrated significant improvements in I/O performance, and these findings were consolidated into a poster—[A Zero-Copy Storage with Metadata-Driven File Management Using Persistent Memory](https://sc24.supercomputing.org/proceedings/poster/poster_files/post209s2-file3.pdf)—accepted at SC 2024.  
+Extended the HVAC deep learning caching framework with a Persistent Memory–based cache tier, enabling zero-copy access via DAX. Deployed and debugged the system on Frontier and ARC clusters, addressing MPI and runtime issues across environments. Achieved preliminary I/O performance improvements and presented the work in an SC 2024 poster.
 
 
 # 💬 Talks
