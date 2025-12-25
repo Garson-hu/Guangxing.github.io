@@ -121,12 +121,10 @@ My Research interest mainly focused on the System Architecture, High Performance
 
 # 💻 Internships
 - *2025.06 - 2025.08*, [Oak Ridge National Laboratory (ORNL)](https://www.ornl.gov/), Oak Ridge, TN, USA.  
-
 Designed FitCache, a multi-tier caching system for accelerating deep learning training. Implemented coordinated caching across memory and storage tiers to reduce data access latency, and evaluated the system at world-leading supercomputer Frontier. This work was presented at IPDPS 2026.
 
 
 - *2024.06 - 2024.08*, [Oak Ridge National Laboratory (ORNL)](https://www.ornl.gov/), Oak Ridge, TN, USA.  
-
 Extended the HVAC deep learning caching framework with a Persistent Memory–based cache tier, enabling zero-copy access via DAX. Deployed and debugged the system on Frontier and ARC clusters, addressing MPI and runtime issues across environments. Achieved preliminary I/O performance improvements and presented the work in an SC 2024 poster.
 
 # 💬 Talks
