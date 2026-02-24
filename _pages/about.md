@@ -129,5 +129,143 @@ Extended the HVAC deep learning caching framework with a Persistent Memory–bas
 # 💬 Talks
 - *2025.08*, Leveraging Memory Hierarchies for Scalable Caching in Deep Learning I/O on HPC Systems, Oak Ridge, TN, USA. 
 
-# 🔖 Projects (TBA)
+<!-- ===== Projects (1-2 images + medium text) ===== -->
+<style>
+  .proj2 { display:flex; gap:18px; align-items:flex-start; margin:36px 0 44px; }
+  .proj2 .media { width:38%; min-width:280px; display:flex; flex-direction:column; gap:10px; }
+  .proj2 .media img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  }
 
+  .proj2 .media img.img-wide{
+    height:360px;
+  }
+
+  .proj2 .media img.img-tall{
+    max-height:480px;
+  }
+  .proj2 .media .small { height:140px; }
+  .proj2 .content { width:62%; }
+  .proj2 h3 { margin:0 0 6px; font-size:1.25rem; }
+  .proj2 .meta { color:#666; font-size:.95rem; margin:0 0 10px; }
+  .proj2 .desc { margin:0 0 10px; line-height:1.45; }
+  .proj2 ul { margin:8px 0 10px 18px; }
+  .proj2 li { margin:4px 0; }
+  .proj2 .links a { display:inline-block; margin-right:10px; margin-top:6px; padding:6px 10px; border-radius:10px; background:#111827; color:#fff; text-decoration:none; font-size:.9rem; }
+  .proj2 .links a.secondary { background:#374151; }
+  .proj2 .links a.light { background:#e5e7eb; color:#111827; }
+  @media (max-width: 900px) { .proj2 { flex-direction:column; } .proj2 .media, .proj2 .content { width:100%; } }
+</style>
+
+# 🔖 Projects
+
+
+<div class="proj2">
+  <div class="media">
+    <img class="img-wide" src="/images/projects/DPUBridge/Bidirectional_RDMA.jpeg" alt="DPUBridge overview">
+    <!-- optional 2nd image -->
+    <!-- <img class="small" src="/images/projects/dpurelaybridge/flow.png" alt="Control and data plane flow"> -->
+  </div>
+
+  <div class="content">
+    <h3>DPUBridge</h3>
+    <p class="meta">In progress · Host memory to DPU relay over GVMI and RDMA</p>
+
+    <p class="desc">
+      A layered bridge that enables a DPU to read local host memory through GVMI aliasing and mirror payloads to a remote DPU using RDMA. The design separates control plane metadata exchange from data plane transfers to keep modules testable and clean.
+    </p>
+
+    <ul>
+      <li><b>Control plane:</b> Host ↔ DPU metadata for GVMI access, and DPU ↔ DPU endpoint exchange for RDMA QP setup</li>
+      <li><b>Data plane:</b> DPU reads from GVMI aliased host buffers and writes to a remote mirror region via RDMA</li>
+      <li>Clear ownership boundaries: vendor specific code in <code>memory_manager.cpp</code> and <code>gvmi_wrapper.c</code></li>
+      <li>RDMA verbs isolated in <code>rdma_link.cpp</code>, orchestration isolated in <code>relay_engine.cpp</code></li>
+      <li>Designed for extensions: multi region support, multiple peers, and pluggable scheduling policies</li>
+    </ul>
+
+    <p class="meta">
+      <b>Status:</b> bringing up end to end path (GVMI read + RDMA write) and stabilizing the control plane protocol.
+    </p>
+
+    <div class="links">
+      <!--
+      <a href="PUT_REPO_LINK_HERE">Paper</a>
+      <a class="secondary" href="PUT_DOC_LINK_HERE">Code</a>
+      -->
+    </div>
+  </div>
+</div>
+
+
+<div class="proj2">
+  <div class="media">
+    <img src="/images/projects/fitcache/System_Overview.svg" alt="FitCache I/O flow">
+    <!-- optional: -->
+    <!-- <img class="small" src="/images/projects/fitcache/results.png" alt="FitCache results"> -->
+  </div>
+
+  <div class="content">
+    <h3>FitCache</h3>
+    <p class="meta">IPDPS 2026 · Multi tier caching for distributed deep learning I O</p>
+
+    <p class="desc">
+      Transparent drop in framework that intercepts POSIX reads and serves training data from the fastest tier among memory, NVMe, and PFS via concurrent fetch.
+    </p>
+
+    <ul>
+      <li>LD_PRELOAD client intercepts open read close and forwards requests to a cache server</li>
+      <li>Hierarchical cache across DRAM or PMem and NVMe above Lustre or BeeGFS</li>
+      <li>Concurrent multi tier fetch returns the earliest responder, tolerating tier variability</li>
+      <li>Scaled evaluation on Frontier up to 2048 GPUs and smaller clusters</li>
+    </ul>
+
+    <p class="meta">
+      <b>Key results:</b> up to 40% training time reduction and up to 71.6% per batch I O latency reduction (188.3ms to 53.4ms).
+    </p>
+
+    <div class="links">
+      <a href="PUT_PAPER_LINK_HERE">Paper</a>
+      <a class="secondary" href="https://github.com/Garson-hu/FitCache">Code</a>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="proj2">
+  <div class="media">
+    <img class="img-wide" src="/images/projects/visualChirality/tsne_visual_chirality.png" alt="Visual chirality effect on hash codes">
+    <!-- optional 2nd image -->
+    <!-- <img class="small" src="/images/projects/visual-chirality/activation.png" alt="Activated regions: original vs flipped"> -->
+  </div>
+
+  <div class="content">
+    <h3>Visual Chirality in Image Hashing</h3>
+    <p class="meta">Neural Computing and Applications 2023 · Data augmentation analysis for deep hashing</p>
+
+    <p class="desc">
+      This project studies visual chirality, where flipping an image can change its semantics and shift the hash code distribution, which can hurt retrieval when flip augmentation is used.
+    </p>
+
+    <ul>
+      <li>Designed a ResNet 50 based classifier to identify images with chiral cues by comparing predictions of original and flipped images</li>
+      <li>Constructed chiral datasets with controlled proportions of chiral images on VOC2007, MS-COCO, and NUS-WIDE</li>
+      <li>Evaluated three representative hashing pipelines: HashNet, DCH, and BYOL plus DCH under multiple hash code lengths</li>
+      <li>Provided visual explanations via activated region comparisons between original and flipped images</li>
+    </ul>
+
+    <p class="meta">
+      <b>Key results:</b> performance varies strongly with the proportion of chiral data, and the best performance consistently appears when chiral images account for about 15% to 25% or 75% to 85%.
+    </p>
+
+    <div class="links">
+      <a href="https://link.springer.com/article/10.1007/s00521-022-08141-0">Paper</a>
+      <a class="secondary" href="https://github.com/lzHZWZ/Visual_Chirality_Hashing">Code</a>
+    </div>
+  </div>
+</div>
