@@ -181,11 +181,11 @@ Extended the HVAC deep learning caching framework with a Persistent Memory–bas
     </p>
 
     <ul>
-      <li><b>Control plane:</b> Host ↔ DPU metadata for GVMI access, and DPU ↔ DPU endpoint exchange for RDMA QP setup</li>
-      <li><b>Data plane:</b> DPU reads from GVMI aliased host buffers and writes to a remote mirror region via RDMA</li>
-      <li>Clear ownership boundaries: vendor specific code in <code>memory_manager.cpp</code> and <code>gvmi_wrapper.c</code></li>
-      <li>RDMA verbs isolated in <code>rdma_link.cpp</code>, orchestration isolated in <code>relay_engine.cpp</code></li>
-      <li>Designed for extensions: multi region support, multiple peers, and pluggable scheduling policies</li>
+      <li><b>Control plane:</b> Host↔DPU exchange for GVMI access metadata, plus DPU↔DPU exchange for RDMA QP connection setup</li>
+      <li><b>Data plane:</b> GVMI backed reads from host buffers, then RDMA writes into a remote mirror region</li>
+      <li><b>Key techniques:</b> GVMI aliasing for host memory access, RDMA verbs for transport, explicit control and data plane separation</li>
+      <li><b>Design focus:</b> clean boundaries between memory access, networking, and relay scheduling to keep bring up and debugging tractable</li>
+      <li><b>Extensible:</b> pluggable scheduling policies and offload data to the Parallel File Systems(e.g., BeeGFS) </li>
     </ul>
 
     <p class="meta">
