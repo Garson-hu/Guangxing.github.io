@@ -180,7 +180,7 @@ Extended the HVAC deep learning caching framework with a Persistent Memory–bas
       A layered bridge that enables a DPU to read local host memory through GVMI aliasing and mirror payloads to a remote DPU using RDMA. The design separates control plane metadata exchange from data plane transfers to keep modules testable and clean.
     </p>
 
-    <ul>
+    <ul class="meta">
       <li><b>Control plane:</b> Host↔DPU exchange for GVMI access metadata, plus DPU↔DPU exchange for RDMA QP connection setup</li>
       <li><b>Data plane:</b> GVMI backed reads from host buffers, then RDMA writes into a remote mirror region</li>
       <li><b>Key techniques:</b> GVMI aliasing for host memory access, RDMA verbs for transport, explicit control and data plane separation</li>
@@ -211,7 +211,7 @@ Extended the HVAC deep learning caching framework with a Persistent Memory–bas
 
   <div class="content">
     <h3>FitCache</h3>
-    <p class="meta">IPDPS 2026 · Multi tier caching for distributed deep learning I O</p>
+    <p class="meta">IPDPS 2026 · Multi tier caching for distributed deep learning I/O</p>
 
     <p class="desc">
       Transparent drop in framework that intercepts POSIX reads and serves training data from the fastest tier among memory, NVMe, and PFS via concurrent fetch.
@@ -225,7 +225,8 @@ Extended the HVAC deep learning caching framework with a Persistent Memory–bas
     </ul>
 
     <p class="meta">
-      <b>Key results:</b> up to 40% training time reduction and up to 71.6% per batch I O latency reduction (188.3ms to 53.4ms).
+      <b>Key results:</b> up to <strong class="meta-strong">40%</strong> training time reduction and up to
+      <strong class="meta-strong">71.6%</strong> per batch I/O latency reduction (<strong class="meta-strong">188.3ms</strong> to <strong class="meta-strong">53.4ms</strong>).
     </p>
 
     <div class="links">
@@ -260,7 +261,8 @@ Extended the HVAC deep learning caching framework with a Persistent Memory–bas
     </ul>
 
     <p class="meta">
-      <b>Key results:</b> performance varies strongly with the proportion of chiral data, and the best performance consistently appears when chiral images account for about 15% to 25% or 75% to 85%.
+      <b>Key results:</b> performance varies strongly with the proportion of chiral data, and the best performance consistently appears when chiral images account for
+      <strong class="meta-strong">about 15% to 25%</strong> or <strong class="meta-strong">75% to 85%</strong>.
     </p>
 
     <div class="links">
