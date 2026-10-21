@@ -1,0 +1,27 @@
+{% comment %}
+  Sidebar entry to /photography/. Style comes from site.photography.entry:
+    link   - a "Photography" item in the link list
+    banner - a photo strip with "PHOTOGRAPHY" across it
+    card   - a photo thumbnail with a caption
+  place: "list" (inside the link list), "block" (below it, wide screens),
+         "icon" (row of icons shown on narrow screens).
+{% endcomment %}
+{% assign ph = site.photography %}
+{% if ph.entry %}
+{% assign ph_url = '/photography/' %}
+{% case include.place %}
+{% when 'list' %}
+  {% if ph.entry == 'link' %}
+  <li><a href="{{ ph_url }}" target="_self"><i class="fas fa-fw fa-camera" aria-hidden="true"></i> Photography</a></li>
+  {% endif %}
+{% when 'block' %}
+  {% if ph.entry == 'banner' or ph.entry == 'card' %}
+  <a class="photo-entry photo-entry--{{ ph.entry }}" href="{{ ph_url }}" target="_self">
+    <span class="photo-entry__bg" style="background-image: url('{{ ph.cover }}')"></span>
+    <span class="photo-entry__label">Photography</span>
+  </a>
+  {% endif %}
+{% when 'icon' %}
+  <a href="{{ ph_url }}" target="_self" aria-label="Photography"><i class="fas fa-fw fa-camera" aria-hidden="true"></i></a>
+{% endcase %}
+{% endif %}

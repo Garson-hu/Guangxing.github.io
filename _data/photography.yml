@@ -1,0 +1,40 @@
+# Photos shown on /photography/, in display order (first photo sits on the right).
+#   file:          image file in /images/photography/
+#   title:         first caption line
+#   location:      second caption line
+#   width, height: pixel size of the file (reserves space while the photo loads)
+- file: placeholder-1.jpg
+  title: Placeholder One.
+  location: Somewhere, USA.
+  width: 1800
+  height: 1200
+
+- file: placeholder-2.jpg
+  title: Placeholder Two.
+  location: Somewhere, USA.
+  width: 1200
+  height: 1800
+
+- file: placeholder-3.jpg
+  title: Placeholder Three.
+  location: Somewhere, USA.
+  width: 1800
+  height: 1200
+
+- file: placeholder-4.jpg
+  title: Placeholder Four.
+  location: Somewhere, USA.
+  width: 1800
+  height: 1013
+
+- file: placeholder-5.jpg
+  title: Placeholder Five.
+  location: Somewhere, USA.
+  width: 1200
+  height: 1800
+
+- file: placeholder-6.jpg
+  title: Placeholder Six.
+  location: Somewhere, USA.
+  width: 1800
+  height: 1200

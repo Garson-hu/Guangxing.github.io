@@ -107,3 +107,74 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+/* Photography entry in the sidebar (see _includes/photography-entry.html) */
+.photo-entry {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1.2em;
+    border-radius: 6px;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12);
+
+    @include breakpoint($large) { display: flex; }
+
+    &:hover { color: #fff; text-decoration: none; }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        background: rgba(10, 12, 14, .38);
+        transition: background .3s ease;
+    }
+    &:hover::after { background: rgba(10, 12, 14, .2); }
+
+    .photo-entry__bg {
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        background-size: cover;
+        background-position: center;
+        transition: transform .6s ease;
+    }
+    &:hover .photo-entry__bg { transform: scale(1.08); }
+
+    .photo-entry__label {
+        position: relative;
+        z-index: 1;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+    }
+}
+
+.photo-entry--banner {
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+
+    .photo-entry__label {
+        padding-left: .45em; // balances the trailing letter-spacing
+        font-size: .72em;
+        font-weight: 700;
+        letter-spacing: .45em;
+        text-transform: uppercase;
+    }
+}
+
+.photo-entry--card {
+    height: 0;
+    padding-bottom: 66.67%; // 3:2 thumbnail
+
+    &::after { background: linear-gradient(to top, rgba(0, 0, 0, .6), rgba(0, 0, 0, 0) 60%); }
+    &:hover::after { background: linear-gradient(to top, rgba(0, 0, 0, .45), rgba(0, 0, 0, 0) 60%); }
+
+    .photo-entry__label {
+        position: absolute;
+        left: 12px;
+        bottom: 10px;
+        font-size: .85em;
+        font-weight: 600;
+        letter-spacing: .08em;
+        &::after { content: " \2192"; }
+    }
+}

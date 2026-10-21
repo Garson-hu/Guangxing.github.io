@@ -1,0 +1,229 @@
+/* Photography page (/photography/) */
+
+:root {
+  --ph-bg: #eceeef;
+  --ph-text: #2c3136;
+  --ph-muted: #868c92;
+  --ph-button: #1f2937;
+  --ph-ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+* { box-sizing: border-box; }
+
+body.ph-page {
+  margin: 0;
+  background: var(--ph-bg);
+  color: var(--ph-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial,
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ph-wrap {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ---------- header: sits beside the first (right-aligned) photo ---------- */
+.ph-header {
+  position: absolute;
+  top: 56px;
+  left: 40px;
+  width: 30%;
+  max-width: 320px;
+}
+.ph-name {
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+.ph-intro {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #4b5157;
+}
+.ph-intro p { margin: 0 0 10px; }
+.ph-back {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 7px 16px;
+  border-radius: 6px;
+  background: var(--ph-button);
+  color: #fff;
+  font-size: 12.5px;
+  letter-spacing: .12em;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ph-back:hover { background: #111827; }
+
+/* ---------- gallery: one photo per row, alternating sides ---------- */
+.ph-gallery { padding: 150px 0 40px; }
+
+.ph-item {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin: 0 0 88px;
+}
+.ph-item.ph-right { flex-direction: row-reverse; }
+
+.ph-link {
+  display: block;
+  flex: none;
+  width: 62%;
+  cursor: zoom-in;
+}
+.ph-portrait .ph-link { width: 42%; }
+.ph-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #dfe3e6;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 14px 36px rgba(0, 0, 0, .10);
+}
+
+.ph-caption {
+  font-size: 12px;
+  line-height: 1.55;
+  letter-spacing: .02em;
+  color: var(--ph-muted);
+}
+.ph-right .ph-caption { text-align: right; }
+.ph-title, .ph-location { display: block; }
+.ph-title { color: #5d6369; }
+
+.ph-footer {
+  padding: 8px 0 56px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: .08em;
+  color: var(--ph-muted);
+}
+
+/* ---------- scroll reveal: each photo slides in from its own side ---------- */
+.js .ph-link {
+  opacity: 0;
+  transform: translate3d(-64px, 0, 0);
+  transition: opacity 1.2s var(--ph-ease), transform 1.2s var(--ph-ease);
+}
+.js .ph-right .ph-link { transform: translate3d(64px, 0, 0); }
+.js .ph-caption {
+  opacity: 0;
+  transition: opacity 1s ease .4s;
+}
+.js .ph-item.is-visible .ph-link { opacity: 1; transform: none; }
+.js .ph-item.is-visible .ph-caption { opacity: 1; }
+
+/* ---------- narrow screens: header on top, photos full width ---------- */
+@media (max-width: 900px) {
+  .ph-wrap { padding: 0 18px; }
+  .ph-header { position: static; width: auto; max-width: none; padding-top: 36px; }
+  .ph-gallery { padding-top: 32px; }
+  .ph-item, .ph-item.ph-right { flex-direction: column; align-items: stretch; gap: 8px; margin-bottom: 44px; }
+  .ph-link, .ph-portrait .ph-link { width: 100%; }
+  .ph-right .ph-caption { text-align: left; }
+  .js .ph-link, .js .ph-right .ph-link { transform: translate3d(0, 32px, 0); }
+}
+
+/* ---------- lightbox: click a photo, flip through with arrows / swipe ---------- */
+.ph-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(12, 14, 16, .96);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  animation: ph-fade .25s ease;
+}
+.ph-lightbox[hidden] { display: none; }
+html.ph-lb-open { overflow: hidden; }
+
+.ph-lb-stage {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 92vw;
+}
+.ph-lb-img {
+  display: block;
+  max-width: min(92vw, 1600px);
+  max-height: 82vh;
+  object-fit: contain;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, .5);
+}
+.ph-lb-caption {
+  margin-top: 14px;
+  font-size: 13px;
+  letter-spacing: .04em;
+  color: #c9ced3;
+  text-align: center;
+}
+.ph-lb-caption span { color: #8b9298; }
+.ph-lb-count {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  font-size: 12.5px;
+  letter-spacing: .14em;
+  color: #8b9298;
+}
+
+.ph-lb-btn {
+  position: absolute;
+  padding: 14px;
+  border: 0;
+  background: none;
+  color: #e5e7eb;
+  opacity: .65;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+.ph-lb-btn:hover, .ph-lb-btn:focus-visible { opacity: 1; }
+.ph-lb-btn:focus { outline: none; }
+.ph-lb-btn:focus-visible { outline: 1px solid rgba(255, 255, 255, .5); outline-offset: -4px; border-radius: 8px; }
+.ph-lb-btn svg {
+  display: block;
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ph-lb-close { top: 8px; right: 10px; }
+.ph-lb-prev { left: 10px; top: 50%; transform: translateY(-50%); }
+.ph-lb-next { right: 10px; top: 50%; transform: translateY(-50%); }
+
+/* flipping: the current photo slides out, the next one slides in from the other side */
+.ph-lb-stage.out-left { animation: ph-out-left .18s ease-in forwards; }
+.ph-lb-stage.out-right { animation: ph-out-right .18s ease-in forwards; }
+.ph-lb-stage.from-right { animation: ph-in-right .45s var(--ph-ease); }
+.ph-lb-stage.from-left { animation: ph-in-left .45s var(--ph-ease); }
+.ph-lb-stage.from-none { animation: ph-zoom-in .35s var(--ph-ease); }
+
+@keyframes ph-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ph-out-left { to { opacity: 0; transform: translateX(-56px); } }
+@keyframes ph-out-right { to { opacity: 0; transform: translateX(56px); } }
+@keyframes ph-in-right { from { opacity: 0; transform: translateX(72px); } to { opacity: 1; transform: none; } }
+@keyframes ph-in-left { from { opacity: 0; transform: translateX(-72px); } to { opacity: 1; transform: none; } }
+@keyframes ph-zoom-in { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 900px) {
+  .ph-lb-prev, .ph-lb-next { display: none; } /* swipe instead */
+  .ph-lb-img { max-height: 76vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .ph-link, .js .ph-caption { opacity: 1; transform: none; transition: none; }
+  .ph-lightbox, .ph-lb-stage { animation: none !important; }
+}
