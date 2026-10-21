@@ -57,7 +57,7 @@
       <text x="226" y="380">+ bulk writes</text><text x="226" y="396">to DRAM</text>
       <text x="316" y="380">+ bulk writes</text><text x="316" y="396">to CXL</text>
     </g>
-    <text x="222" y="434" text-anchor="middle" class="cap">(a) Redirect, don't throttle</text>
+    <text x="222" y="434" text-anchor="middle" class="cap">(a) CXL Writes Preserve DRAM Read Bandwidth</text>
   </g>
 
   <line x1="384" y1="28" x2="384" y2="410" stroke="#9ca3af" stroke-width="1.2" stroke-dasharray="5 5"/>
@@ -146,7 +146,7 @@
     <path class="ctrl" d="M960,112 H850 V148"/>
     <text x="905" y="106" text-anchor="middle" font-size="13" font-style="italic">latency probe</text>
 
-    <text x="790" y="434" text-anchor="middle" class="cap">(b) Interference-aware DRAM/CXL management</text>
+    <text x="790" y="434" text-anchor="middle" class="cap">(b) Interference-Aware DRAM/CXL Management</text>
   </g>
 
   <!-- legend -->
