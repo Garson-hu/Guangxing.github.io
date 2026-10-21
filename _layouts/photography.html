@@ -22,11 +22,18 @@
     <main class="ph-gallery">
       {% for photo in site.data.photography %}
       {% assign src = '/images/photography/' | append: photo.file %}
+      {% assign thumb = '/images/photography/thumbs/' | append: photo.file %}
       {% assign side = 'ph-right' %}
       {% assign rem = forloop.index0 | modulo: 2 %}{% if rem == 1 %}{% assign side = 'ph-left' %}{% endif %}
-      <figure class="ph-item {{ side }}{% if photo.height > photo.width %} ph-portrait{% endif %}">
+      {% assign portrait = false %}{% assign long = photo.width %}
+      {% if photo.height > photo.width %}{% assign portrait = true %}{% assign long = photo.height %}{% endif %}
+      {% assign thumb_w = photo.width | times: 1200 | divided_by: long %}
+      <figure class="ph-item {{ side }}{% if portrait %} ph-portrait{% endif %}">
         <a class="ph-link" href="{{ src }}" data-index="{{ forloop.index0 }}">
-          <img src="{{ src }}" alt="{{ photo.title | default: 'Photo' | escape }}" width="{{ photo.width }}" height="{{ photo.height }}" loading="lazy" decoding="async">
+          <img src="{{ thumb }}" srcset="{{ thumb }} {{ thumb_w }}w, {{ src }} {{ photo.width }}w"
+               sizes="(max-width: 900px) 100vw, {% if portrait %}490px{% else %}720px{% endif %}"
+               alt="{{ photo.title | default: 'Photo' | escape }}{% if photo.location %}, {{ photo.location | escape }}{% endif %}"
+               width="{{ photo.width }}" height="{{ photo.height }}" loading="lazy" decoding="async">
         </a>
         <figcaption class="ph-caption">
           {% if photo.title %}<span class="ph-title">{{ photo.title }}</span>{% endif %}

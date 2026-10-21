@@ -62,7 +62,7 @@ author:
 # Photography page (/photography/)
 photography:
   entry            : banner   # sidebar entry style: link | banner | card
-  cover            : "/images/photography/placeholder-4.jpg"   # photo behind the banner / card
+  cover            : "/images/photography/banner.jpg"   # photo behind the banner / card
 
 
 # Reading Files

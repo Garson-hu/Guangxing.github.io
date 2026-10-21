@@ -1,40 +1,101 @@
 # Photos shown on /photography/, in display order (first photo sits on the right).
-#   file:          image file in /images/photography/
+#   file:          image in /images/photography/ (2000px); a 1200px copy lives in thumbs/
 #   title:         first caption line
 #   location:      second caption line
 #   width, height: pixel size of the file (reserves space while the photo loads)
-- file: placeholder-1.jpg
-  title: Placeholder One.
-  location: Somewhere, USA.
-  width: 1800
-  height: 1200
 
-- file: placeholder-2.jpg
-  title: Placeholder Two.
-  location: Somewhere, USA.
-  width: 1200
-  height: 1800
+- file: 2026-05-new-orleans.jpg
+  title: New Orleans
+  location: Louisiana, USA
+  width: 2000
+  height: 1500
 
-- file: placeholder-3.jpg
-  title: Placeholder Three.
-  location: Somewhere, USA.
-  width: 1800
-  height: 1200
+- file: 2026-01-washington-monument.jpg
+  title: Washington Monument
+  location: Washington, D.C., USA
+  width: 1500
+  height: 2000
 
-- file: placeholder-4.jpg
-  title: Placeholder Four.
-  location: Somewhere, USA.
-  width: 1800
-  height: 1013
+- file: 2026-01-midtown-manhattan.jpg
+  title: Midtown Manhattan
+  location: New York, USA
+  width: 1500
+  height: 2000
 
-- file: placeholder-5.jpg
-  title: Placeholder Five.
-  location: Somewhere, USA.
-  width: 1200
-  height: 1800
+- file: 2025-12-key-west.jpg
+  title: Key West
+  location: Florida, USA
+  width: 1500
+  height: 2000
 
-- file: placeholder-6.jpg
-  title: Placeholder Six.
-  location: Somewhere, USA.
-  width: 1800
-  height: 1200
+- file: 2025-12-bahia-honda-key.jpg
+  title: Bahia Honda Key
+  location: Florida, USA
+  width: 2000
+  height: 1500
+
+- file: 2024-12-monument-valley.jpg
+  title: Monument Valley
+  location: Utah, USA
+  width: 2000
+  height: 1500
+
+- file: 2024-12-antelope-canyon.jpg
+  title: Antelope Canyon
+  location: Page, Arizona, USA
+  width: 2000
+  height: 1500
+
+- file: 2024-12-us-route-93.jpg
+  title: U.S. Route 93
+  location: Arizona, USA
+  width: 2000
+  height: 1500
+
+- file: 2024-12-lake-mead.jpg
+  title: Lake Mead
+  location: Nevada, USA
+  width: 1500
+  height: 2000
+
+- file: 2024-01-miami.jpg
+  title: Miami
+  location: Florida, USA
+  width: 2000
+  height: 1500
+
+- file: 2023-07-duku-highway.jpg
+  title: Duku Highway
+  location: Xinjiang, China
+  width: 2000
+  height: 1500
+
+- file: 2023-07-tianshan-mountains.jpg
+  title: Tianshan Mountains
+  location: Ili, Xinjiang, China
+  width: 2000
+  height: 1500
+
+- file: 2023-07-ili-grasslands.jpg
+  title: Ili Grasslands
+  location: Xinjiang, China
+  width: 2000
+  height: 1500
+
+- file: 2023-06-foot-of-the-tianshan.jpg
+  title: Foot of the Tianshan
+  location: Xinjiang, China
+  width: 2000
+  height: 1500
+
+- file: 2023-06-hemu-village.jpg
+  title: Hemu Village
+  location: Altay, Xinjiang, China
+  width: 2000
+  height: 1500
+
+- file: 2023-06-pingshan-canyon.jpg
+  title: Pingshan Canyon
+  location: Enshi, Hubei, China
+  width: 1500
+  height: 2000
