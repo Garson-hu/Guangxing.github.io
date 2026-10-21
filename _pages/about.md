@@ -170,6 +170,32 @@ Extended the HVAC deep learning caching framework with a Persistent Memory–bas
 
 <div class="proj2 proj2-wide">
   <div class="media">
+    <img src="/images/projects/CXL/overview.png" alt="(a) Bulk writes to DRAM cut a co-located DRAM reader from 68.6 to 10.9 GiB/s, while redirecting them to CXL restores 68.6 GiB/s; (b) a unified DRAM/CXL manager with future-value admission, an interference guard, and placement, retention, and movement decisions">
+  </div>
+
+  <div class="content">
+    <h3>Unified DRAM/CXL Memory Management</h3>
+    <p class="meta">In progress · Interference-aware tiering for LLM serving and training</p>
+
+    <p class="desc">
+      LLM serving and training produce bulk writes, such as KV-cache blocks and checkpoints, that can saturate DRAM write bandwidth and starve co-located readers. Instead of throttling these writers, this project treats CXL memory as an independent, writable memory pipe: bulk writes land on CXL by default, and DRAM and CXL are managed as one pool with separate capacity and write-bandwidth budgets. The prototype runs on real CXL hardware (Micron CZ120 memory expanders).
+    </p>
+
+    <ul class="meta">
+      <li><b>CXL-first write path:</b> bulk writes go to a CXL-resident segment store; DRAM is borrowed only when a latency probe shows headroom, the loan can be revoked at no cost, and data drains to NVMe without passing through DRAM</li>
+      <li><b>Interference guard:</b> an online, SLO-safe DRAM write budget with arbitration across concurrent writers such as checkpointing and KV-cache traffic</li>
+      <li><b>Reuse awareness:</b> placement, retention, and movement follow each block's future value versus its movement cost; a self-labeled admission filter learns which new KV-cache blocks are not worth storing</li>
+    </ul>
+
+    <p class="meta">
+      <b>Results so far:</b> alongside a moderate co-located workload, the CXL-first write path is <strong class="meta-strong">3×</strong> faster than throttling and causes <strong class="meta-strong">4–10×</strong> less interference than DRAM staging; it halves PyTorch DCP async_save blocking next to an Adam optimizer (<strong class="meta-strong">1.6 s</strong> to <strong class="meta-strong">0.8 s</strong>); and the admission filter beats SLRU on two real traces while cutting cache write traffic by <strong class="meta-strong">over two-thirds</strong>.
+    </p>
+  </div>
+</div>
+
+
+<div class="proj2 proj2-wide">
+  <div class="media">
     <img src="/images/projects/DPUBridge/overview.png" alt="DPUBridge overview: (a) architecture with the control layer on the host and the data layer on the DPU; (b) workflow with one-time region setup and a descriptor-based hot path">
     <!-- optional 2nd image -->
     <!-- <img class="small" src="/images/projects/dpurelaybridge/flow.png" alt="Control and data plane flow"> -->
@@ -187,7 +213,6 @@ Extended the HVAC deep learning caching framework with a Persistent Memory–bas
       <li><b>Register once, reuse every checkpoint:</b> each checkpoint region is exposed to the DPU once through a cross-GVMI memory key (CGMK) alias; later checkpoints submit only compact (region, offset, size) descriptors, which the DPU bounds-checks before pulling data</li>
       <li><b>Data path:</b> DPU-side DMA (MMO) pull from host memory, RDMA relay to the peer DPU, then placement into remote host memory, streamed through bounded DPU buffers</li>
       <li><b>Framework integration:</b> VELOC and SCR for CPU-resident HPC state; PyTorch Distributed Checkpoint and ByteCheckpoint for GPU training through double-buffered pinned host staging, without changing their APIs</li>
-      <li><b>Implementation &amp; evaluation:</b> ~5K lines of C++ (host runtime, BlueField DPU relay daemon, Python binding), evaluated on four HPC applications and five training workloads, from ResNet50 up to 3.8B-parameter LLMs</li>
     </ul>
 
     <p class="meta">

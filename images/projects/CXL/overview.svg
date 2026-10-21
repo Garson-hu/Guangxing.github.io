@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 18 1200 462" width="1200" height="462" font-family="'Times New Roman', Times, serif">
+  <defs>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1d4dd8"/>
+    </marker>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#111318"/>
+    </marker>
+  </defs>
+  <style>
+    text { fill: #111318; }
+    .ttl { font-weight: 700; }
+    .sub { font-size: 13.5px; fill: #374151; }
+    .cap { font-size: 19px; font-weight: 700; }
+    .lbl { font-size: 13.5px; font-weight: 700; }
+    .data { stroke: #1d4dd8; stroke-width: 2.4; fill: none; marker-end: url(#ah-blue); }
+    .cond { stroke: #1d4dd8; stroke-width: 2.2; fill: none; stroke-dasharray: 7 5; marker-end: url(#ah-blue); }
+    .ctrl { stroke: #111318; stroke-width: 1.4; fill: none; stroke-dasharray: 3 3; marker-end: url(#ah-ink); }
+  </style>
+
+  <rect y="18" width="1200" height="462" fill="#ffffff"/>
+
+  <!-- ============ (a) phenomenon ============ -->
+  <g id="panel-a">
+    <g stroke="#e5e7eb" stroke-width="1">
+      <line x1="84" y1="288" x2="362" y2="288"/>
+      <line x1="84" y1="216" x2="362" y2="216"/>
+      <line x1="84" y1="144" x2="362" y2="144"/>
+      <line x1="84" y1="72" x2="362" y2="72"/>
+    </g>
+    <line x1="84" y1="64" x2="84" y2="360" stroke="#111318" stroke-width="1.5"/>
+    <line x1="84" y1="360" x2="362" y2="360" stroke="#111318" stroke-width="1.5"/>
+    <g font-size="14" text-anchor="end">
+      <text x="76" y="365">0</text>
+      <text x="76" y="293">20</text>
+      <text x="76" y="221">40</text>
+      <text x="76" y="149">60</text>
+      <text x="76" y="77">80</text>
+    </g>
+    <text transform="translate(38,214) rotate(-90)" text-anchor="middle" font-size="15" class="ttl">DRAM reader bandwidth (GiB/s)</text>
+
+    <rect x="104" y="113.04" width="64" height="246.96" fill="#e5e7eb" stroke="#4b5563" stroke-width="1.5"/>
+    <rect x="194" y="320.76" width="64" height="39.24" fill="#fbd5b5" stroke="#c2410c" stroke-width="1.5"/>
+    <rect x="284" y="113.04" width="64" height="246.96" fill="#c9ece4" stroke="#0f766e" stroke-width="1.5"/>
+    <line x1="84" y1="113.04" x2="362" y2="113.04" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="5 4"/>
+
+    <g font-size="16" font-weight="700" text-anchor="middle">
+      <text x="136" y="105">68.6</text>
+      <text x="226" y="312" style="fill:#c2410c">10.9</text>
+      <text x="316" y="105" style="fill:#0f766e">68.6</text>
+    </g>
+    <text x="226" y="290" text-anchor="middle" font-size="15" font-weight="700" font-style="italic" style="fill:#c2410c">6.3× lower</text>
+    <text x="316" y="88" text-anchor="middle" font-size="15" font-weight="700" font-style="italic" style="fill:#0f766e">restored</text>
+
+    <g font-size="13.5" text-anchor="middle">
+      <text x="136" y="380">Reader</text><text x="136" y="396">alone</text>
+      <text x="226" y="380">+ bulk writes</text><text x="226" y="396">to DRAM</text>
+      <text x="316" y="380">+ bulk writes</text><text x="316" y="396">to CXL</text>
+    </g>
+    <text x="222" y="434" text-anchor="middle" class="cap">(a) Redirect, don't throttle</text>
+  </g>
+
+  <line x1="384" y1="28" x2="384" y2="410" stroke="#9ca3af" stroke-width="1.2" stroke-dasharray="5 5"/>
+
+  <!-- ============ (b) system ============ -->
+  <g id="panel-b">
+    <!-- workloads -->
+    <rect x="410" y="45" width="160" height="70" rx="6" fill="#f3f4f6" stroke="#374151" stroke-width="1.6"/>
+    <text x="490" y="74" text-anchor="middle" font-size="17" class="ttl">Readers</text>
+    <text x="490" y="96" text-anchor="middle" class="sub">LLM decode · optimizer</text>
+
+    <rect x="400" y="158" width="180" height="196" rx="8" fill="none" stroke="#6b7280" stroke-width="1.3" stroke-dasharray="5 4"/>
+    <text x="490" y="181" text-anchor="middle" font-size="16" class="ttl">Bulk writers</text>
+    <rect x="410" y="194" width="160" height="64" rx="6" fill="#dbe6fb" stroke="#1d4dd8" stroke-width="1.6"/>
+    <text x="490" y="221" text-anchor="middle" font-size="16" class="ttl">KV-cache blocks</text>
+    <text x="490" y="242" text-anchor="middle" class="sub">LLM serving</text>
+    <rect x="410" y="274" width="160" height="64" rx="6" fill="#dbe6fb" stroke="#1d4dd8" stroke-width="1.6"/>
+    <text x="490" y="301" text-anchor="middle" font-size="16" class="ttl">Checkpoints</text>
+    <text x="490" y="322" text-anchor="middle" class="sub">PyTorch DCP · VeloC</text>
+
+    <!-- manager -->
+    <rect x="630" y="150" width="250" height="240" rx="8" fill="#eef2f8" stroke="#1f395f" stroke-width="1.8"/>
+    <text x="755" y="174" text-anchor="middle" font-size="17" class="ttl" style="fill:#1f395f">Unified DRAM/CXL Manager</text>
+    <text x="755" y="193" text-anchor="middle" class="sub" font-style="italic">budgets: capacity · write bandwidth</text>
+
+    <g>
+      <rect x="642" y="205" width="226" height="54" rx="5" fill="#ffffff" stroke="#1f395f" stroke-width="1.2"/>
+      <circle cx="660" cy="232" r="10" fill="#1f395f"/>
+      <text x="660" y="237" text-anchor="middle" font-size="13" font-weight="700" style="fill:#ffffff">1</text>
+      <text x="770" y="227" text-anchor="middle" font-size="15.5" class="ttl">Future value</text>
+      <text x="770" y="247" text-anchor="middle" class="sub">admit only blocks worth keeping</text>
+    </g>
+    <g>
+      <rect x="642" y="267" width="226" height="54" rx="5" fill="#ffffff" stroke="#1f395f" stroke-width="1.2"/>
+      <circle cx="660" cy="294" r="10" fill="#1f395f"/>
+      <text x="660" y="299" text-anchor="middle" font-size="13" font-weight="700" style="fill:#ffffff">2</text>
+      <text x="770" y="289" text-anchor="middle" font-size="15.5" class="ttl">Interference guard</text>
+      <text x="770" y="309" text-anchor="middle" class="sub">SLO-safe DRAM write budget</text>
+    </g>
+    <g>
+      <rect x="642" y="329" width="226" height="54" rx="5" fill="#ffffff" stroke="#1f395f" stroke-width="1.2"/>
+      <circle cx="660" cy="356" r="10" fill="#1f395f"/>
+      <text x="660" y="361" text-anchor="middle" font-size="13" font-weight="700" style="fill:#ffffff">3</text>
+      <text x="770" y="351" text-anchor="middle" font-size="15.5" class="ttl">Place · retain · move</text>
+      <text x="770" y="371" text-anchor="middle" class="sub">future value vs. movement cost</text>
+    </g>
+
+    <!-- memory tiers -->
+    <rect x="960" y="45" width="220" height="80" rx="6" fill="#fde7d4" stroke="#c2410c" stroke-width="1.8"/>
+    <text x="1070" y="72" text-anchor="middle" font-size="19" class="ttl">DRAM</text>
+    <text x="1070" y="93" text-anchor="middle" class="sub">hot data · fast reads</text>
+    <text x="1070" y="111" text-anchor="middle" class="sub">write bandwidth is budgeted</text>
+
+    <rect x="960" y="205" width="220" height="80" rx="6" fill="#d5efe9" stroke="#0f766e" stroke-width="1.8"/>
+    <text x="1070" y="232" text-anchor="middle" font-size="19" class="ttl">CXL memory</text>
+    <text x="1070" y="253" text-anchor="middle" class="sub">independent write pipe</text>
+    <text x="1070" y="271" text-anchor="middle" class="sub">default home of bulk writes</text>
+
+    <path d="M995,330 v52 a75,9 0 0 0 150,0 v-52" fill="#f8c4c4" stroke="#b1001b" stroke-width="1.6"/>
+    <ellipse cx="1070" cy="330" rx="75" ry="9" fill="#fbd9d9" stroke="#b1001b" stroke-width="1.6"/>
+    <text x="1070" y="364" text-anchor="middle" font-size="17" class="ttl" style="fill:#b1001b">NVMe</text>
+    <text x="1070" y="381" text-anchor="middle" font-size="12.5" style="fill:#7f1d1d">persistent tier</text>
+
+    <!-- arrows -->
+    <path class="data" d="M960,80 H572"/>
+    <text x="765" y="72" text-anchor="middle" class="lbl" style="fill:#1d4dd8">reads stay fast</text>
+
+    <path class="data" d="M570,226 H628"/>
+    <path class="data" d="M570,306 H628"/>
+
+    <path class="data" d="M880,245 H958" style="stroke-width:3.2"/>
+    <text x="920" y="237" text-anchor="middle" class="lbl" style="fill:#1d4dd8">default</text>
+
+    <path class="cond" d="M880,175 H995 V127"/>
+    <text x="1004" y="151" class="lbl" style="fill:#1d4dd8">borrow (budgeted)</text>
+    <text x="1004" y="166" class="sub" font-style="italic">revocable</text>
+
+    <path class="cond" d="M1150,205 V127"/>
+    <text x="1142" y="184" text-anchor="end" class="lbl" style="fill:#1d4dd8">promote at</text>
+    <text x="1142" y="199" text-anchor="end" class="lbl" style="fill:#1d4dd8">break-even reuse</text>
+
+    <path class="data" d="M1070,285 V319"/>
+    <text x="1080" y="301" class="lbl" style="fill:#1d4dd8">drain</text>
+    <text x="1080" y="316" class="sub" font-style="italic">bypasses DRAM</text>
+
+    <path class="ctrl" d="M960,112 H850 V148"/>
+    <text x="905" y="106" text-anchor="middle" font-size="13" font-style="italic">latency probe</text>
+
+    <text x="790" y="434" text-anchor="middle" class="cap">(b) Interference-aware DRAM/CXL management</text>
+  </g>
+
+  <!-- legend -->
+  <rect x="300" y="450" width="600" height="26" rx="6" fill="#f9fafb" stroke="#e5e7eb"/>
+  <g font-size="14">
+    <path class="data" d="M320,463 H368"/>
+    <text x="376" y="468">Data path</text>
+    <path class="cond" d="M480,463 H528"/>
+    <text x="536" y="468">Conditional (budget / reuse)</text>
+    <path class="ctrl" d="M730,463 H778"/>
+    <text x="786" y="468">Probe / control</text>
+  </g>
+</svg>
