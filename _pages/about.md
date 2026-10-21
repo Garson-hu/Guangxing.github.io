@@ -159,37 +159,39 @@ Extended the HVAC deep learning caching framework with a Persistent Memory–bas
   .proj2 .links a { display:inline-block; margin-right:10px; margin-top:6px; padding:6px 10px; border-radius:10px; background:#111827; color:#fff; text-decoration:none; font-size:.9rem; }
   .proj2 .links a.secondary { background:#374151; }
   .proj2 .links a.light { background:#e5e7eb; color:#111827; }
+  /* wide figures: image spans the card, text below */
+  .proj2.proj2-wide { flex-direction:column; }
+  .proj2.proj2-wide .media, .proj2.proj2-wide .content { width:100%; }
   @media (max-width: 900px) { .proj2 { flex-direction:column; } .proj2 .media, .proj2 .content { width:100%; } }
 </style>
 
 # 🔖 Projects
 
 
-<div class="proj2">
+<div class="proj2 proj2-wide">
   <div class="media">
-    <img class="img-wide" src="/images/projects/DPUBridge/Bidirectional_RDMA.jpeg" alt="DPUBridge overview">
+    <img src="/images/projects/DPUBridge/overview.png" alt="DPUBridge overview: (a) architecture with the control layer on the host and the data layer on the DPU; (b) workflow with one-time region setup and a descriptor-based hot path">
     <!-- optional 2nd image -->
     <!-- <img class="small" src="/images/projects/dpurelaybridge/flow.png" alt="Control and data plane flow"> -->
   </div>
 
   <div class="content">
     <h3>DPUBridge</h3>
-    <p class="meta">In progress · Host memory to DPU relay over GVMI and RDMA</p>
+    <p class="meta">Under review · DPU-driven checkpoint relay over GVMI and RDMA</p>
 
     <p class="desc">
-      A layered bridge that enables a DPU to read local host memory through GVMI aliasing and mirror payloads to a remote DPU using RDMA. The design separates control plane metadata exchange from data plane transfers to keep modules testable and clean.
+      DPUBridge takes the repeated checkpoint data path off the host CPU. The checkpoint framework still decides what to save and when, while the DPU reads checkpoint data straight from host memory and relays it over RDMA to a peer node. The peer places an off-node recovery copy in remote host memory and lazily flushes it to NVMe.
     </p>
 
     <ul class="meta">
-      <li><b>Control plane:</b> Host↔DPU exchange for GVMI access metadata, plus DPU↔DPU exchange for RDMA QP connection setup</li>
-      <li><b>Data plane:</b> GVMI backed reads from host buffers, then RDMA writes into a remote mirror region</li>
-      <li><b>Key techniques:</b> GVMI aliasing for host memory access, RDMA verbs for transport, explicit control and data plane separation</li>
-      <li><b>Design focus:</b> clean boundaries between memory access, networking, and relay scheduling to keep bring up and debugging tractable</li>
-      <li><b>Extensible:</b> pluggable scheduling policies and offload data to the Parallel File Systems(e.g., BeeGFS) </li>
+      <li><b>Register once, reuse every checkpoint:</b> each checkpoint region is exposed to the DPU once through a cross-GVMI memory key (CGMK) alias; later checkpoints submit only compact (region, offset, size) descriptors, which the DPU bounds-checks before pulling data</li>
+      <li><b>Data path:</b> DPU-side DMA (MMO) pull from host memory, RDMA relay to the peer DPU, then placement into remote host memory, streamed through bounded DPU buffers</li>
+      <li><b>Framework integration:</b> VELOC and SCR for CPU-resident HPC state; PyTorch Distributed Checkpoint and ByteCheckpoint for GPU training through double-buffered pinned host staging, without changing their APIs</li>
+      <li><b>Implementation &amp; evaluation:</b> ~5K lines of C++ (host runtime, BlueField DPU relay daemon, Python binding), evaluated on four HPC applications and five training workloads, from ResNet50 up to 3.8B-parameter LLMs</li>
     </ul>
 
     <p class="meta">
-      <b>Status:</b> bringing up end to end path (GVMI read + RDMA write) and stabilizing the control plane protocol.
+      <b>Key results:</b> up to <strong class="meta-strong">16×</strong> less extra host CPU time per checkpoint, up to <strong class="meta-strong">12×</strong> lower checkpoint blocking time, a persistent remote copy up to <strong class="meta-strong">4.5×</strong> sooner, and <strong class="meta-strong">&lt;1%</strong> end-to-end overhead in PyTorch DCP training.
     </p>
 
     <div class="links">
@@ -230,7 +232,7 @@ Extended the HVAC deep learning caching framework with a Persistent Memory–bas
     </p>
 
     <div class="links">
-      <a href="PUT_PAPER_LINK_HERE">Paper</a>
+      <a href="https://ieeexplore.ieee.org/abstract/document/11575349/">Paper</a>
       <a class="secondary" href="https://github.com/Garson-hu/FitCache">Code</a>
     </div>
   </div>
