@@ -126,10 +126,10 @@ h1:before, .anchor:before {
         content: "";
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
-        background: rgba(10, 12, 14, .38);
+        background: rgba(10, 12, 14, .1);
         transition: background .3s ease;
     }
-    &:hover::after { background: rgba(10, 12, 14, .2); }
+    &:hover::after { background: rgba(10, 12, 14, 0); }
 
     .photo-entry__bg {
         position: absolute;
