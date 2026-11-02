@@ -8,6 +8,7 @@
 # Site Settings
 title                    : "Guangxing"
 description              : "PhD student at NC State University with a focus on High Performance Computing."
+url                      : "https://www.guangxinghu.com"
 repository               : "RayeRen/acad-homepage.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -132,6 +133,26 @@ defaults:
     values:
       layout: default
       author_profile: true
+  # blog posts: Chinese in _posts/, English translations in _posts/en/ (see _data/blog.yml)
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      lang: zh
+      permalink: /blog/:title/
+  - scope:
+      path: "_posts/en"
+      type: posts
+    values:
+      lang: en
+      permalink: /en/blog/:title/
+  - scope:
+      path: "_drafts/en"
+      type: posts
+    values:
+      lang: en
+      permalink: /en/blog/:title/
 
 
 # Sass/SCSS

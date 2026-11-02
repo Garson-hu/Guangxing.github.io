@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+{%- comment -%}
+  Atom feed of the blog posts in page.lang (used by _pages/blog-feed*.xml).
+{%- endcomment -%}
+{%- assign t = site.data.blog[page.lang] -%}
+{%- assign posts = site.posts | where: 'lang', page.lang %}
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ t.html_lang }}">
+  <title>{{ site.author.name }} · {{ t.title }}</title>
+  <link href="{{ site.url }}{{ page.url }}" rel="self" type="application/atom+xml"/>
+  <link href="{{ site.url }}{{ t.index }}" rel="alternate" type="text/html"/>
+  <id>{{ site.url }}{{ t.index }}</id>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <author><name>{{ site.author.name }}</name></author>
+  {%- for p in posts limit: 20 %}
+  {%- assign summary = p.description | default: p.excerpt | strip_html | strip_newlines | strip %}
+  <entry>
+    <title>{{ p.title | xml_escape }}</title>
+    <link href="{{ site.url }}{{ p.url }}" rel="alternate" type="text/html"/>
+    <id>{{ site.url }}{{ p.url }}</id>
+    <published>{{ p.date | date_to_xmlschema }}</published>
+    <updated>{{ p.date | date_to_xmlschema }}</updated>
+    <summary>{{ summary | xml_escape }}</summary>
+    <content type="html" xml:base="{{ site.url }}{{ p.url }}">{{ p.content | xml_escape }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

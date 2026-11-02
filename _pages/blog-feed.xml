@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /blog/feed.xml
+lang: zh
+sitemap: false
+---
+{% include blog-feed.xml %}

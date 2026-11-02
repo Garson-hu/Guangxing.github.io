@@ -1,0 +1,78 @@
+{% comment %}
+  Blog post. Chinese posts live in _posts/, English ones in _posts/en/; a post and its
+  translation share the slug, which is how the 中 / EN switch finds the other version.
+{% endcomment %}
+{% assign L = page.lang | default: 'zh' %}
+{% assign t = site.data.blog[L] %}
+{% if L == 'en' %}{% assign other = 'zh' %}{% else %}{% assign other = 'en' %}{% endif %}
+{% assign twin = site.posts | where: 'slug', page.slug | where: 'lang', other | first %}
+{% assign switch_url = twin.url %}
+{% assign cat = page.categories.first %}
+{% assign desc = page.description | default: page.excerpt | strip_html | strip_newlines | strip | truncate: 160 %}
+
+{% comment %} reading time: ~400 Chinese characters or ~220 English words a minute {% endcomment %}
+{% if L == 'zh' %}
+  {% assign minutes = content | strip_html | strip_newlines | size | divided_by: 400 | plus: 1 %}
+{% else %}
+  {% assign minutes = content | number_of_words | divided_by: 220 | plus: 1 %}
+{% endif %}
+
+{% comment %} previous / next among posts in the same language {% endcomment %}
+{% assign same = site.posts | where: 'lang', L %}
+{% for p in same %}{% if p.url == page.url %}{% assign i = forloop.index0 %}{% break %}{% endif %}{% endfor %}
+{% assign older_i = i | plus: 1 %}
+{% assign older = same[older_i] %}
+{% assign newer = nil %}
+{% if i > 0 %}{% assign newer_i = i | minus: 1 %}{% assign newer = same[newer_i] %}{% endif %}
+<!doctype html>
+<html lang="{{ t.html_lang }}" class="no-js">
+<head>
+  {% include blog-head.html title=page.title description=desc %}
+  {% if page.math %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.querySelector('.bl-content'))"></script>
+  {% endif %}
+</head>
+<body class="bl-page bl-post">
+  {% include blog-header.html %}
+
+  <main class="bl-main">
+    <article class="bl-article">
+      <header class="bl-post-head">
+        <p class="bl-meta">
+          {% if cat %}<a class="bl-cat bl-cat--{{ cat }}" href="{{ t.index }}#{{ cat }}">{{ site.data.blog.categories[cat][L] | default: cat }}</a>{% endif %}
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: t.date_format }}</time>
+          <span>{{ t.read_time | replace: '%n', minutes }}</span>
+        </p>
+        <h1 class="bl-post-title">{{ page.title }}</h1>
+        {% if page.description %}<p class="bl-post-desc">{{ page.description }}</p>{% endif %}
+        {% if t.translated and twin %}
+        <p class="bl-note">{{ t.translated }} <a href="{{ twin.url }}" lang="{{ site.data.blog[other].html_lang }}" data-lang="{{ other }}">{{ t.original }}</a></p>
+        {% endif %}
+      </header>
+
+      <div class="bl-content"{% if page.toc == false %} data-toc="off"{% endif %}>
+        {{ content }}
+      </div>
+    </article>
+
+    {% if older or newer %}
+    <nav class="bl-pager">
+      {% if older %}<a class="bl-pager-older" href="{{ older.url }}"><span>← {{ t.older }}</span>{{ older.title }}</a>{% endif %}
+      {% if newer %}<a class="bl-pager-newer" href="{{ newer.url }}"><span>{{ t.newer }} →</span>{{ newer.title }}</a>{% endif %}
+    </nav>
+    {% endif %}
+  </main>
+
+  <nav class="bl-toc" aria-label="{{ t.toc }}" hidden>
+    <p class="bl-toc-title">{{ t.toc }}</p>
+    <ol></ol>
+  </nav>
+
+  <footer class="bl-footer">© {{ site.time | date: '%Y' }} {{ site.author.name }} · <a href="{{ t.feed }}">RSS</a></footer>
+
+  <script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

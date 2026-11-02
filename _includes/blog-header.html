@@ -1,0 +1,21 @@
+{% comment %}
+  Top bar of the blog layouts: name (links to the blog index), homepage link
+  and the 中 / EN switch. switch_url is the same page in the other language;
+  when it is empty the other language is greyed out.
+{% endcomment %}
+<header class="bl-bar">
+  <a class="bl-name" href="{{ t.index }}">{{ site.author.name }}<span class="bl-name-sub">{{ t.title }}</span></a>
+  <nav class="bl-nav">
+    <a href="/">{{ t.home }}</a>
+    <span class="bl-lang">
+      {% assign codes = 'zh,en' | split: ',' %}
+      {% for code in codes %}
+        {% assign c = site.data.blog[code] %}
+        {% if code == L %}<span class="is-current">{{ c.short }}</span>
+        {% elsif switch_url %}<a href="{{ switch_url }}" hreflang="{{ c.html_lang }}" lang="{{ c.html_lang }}" data-lang="{{ code }}">{{ c.short }}</a>
+        {% else %}<span class="is-missing" title="{{ c.missing }}">{{ c.short }}</span>{% endif %}
+        {% unless forloop.last %}<span class="bl-lang-sep" aria-hidden="true">/</span>{% endunless %}
+      {% endfor %}
+    </span>
+  </nav>
+</header>

@@ -1,0 +1,63 @@
+# Blog: Chinese at /blog/, English at /en/blog/.
+#
+# Writing a post
+#   _posts/2026-11-02-my-post.md       Chinese   -> /blog/my-post/
+#   _posts/en/2026-11-02-my-post.md    English   -> /en/blog/my-post/
+#   A post and its translation are paired by the name after the date ("my-post"),
+#   so give the translation the same file name. A post with only one version is
+#   still listed on the other language's index, marked 中文 / English.
+#   Drafts go in _drafts/ and _drafts/en/, without the date in the file name.
+#   run_server.sh shows them locally; the live site does not.
+#
+# Front matter
+#   title:        post title
+#   category:     research | finance | life   (a key under `categories` below)
+#   description:  one-line summary for the index, feeds and link previews;
+#                 defaults to the first paragraph
+#   math:         true to render $$...$$ with KaTeX
+#   toc:          false to hide the table of contents (shown on wide screens
+#                 when a post has 3 or more headings)
+#
+# Images go in /images/blog/my-post/.
+
+categories:
+  research: { zh: 研究, en: Research }
+  finance:  { zh: 理财, en: Finance }
+  life:     { zh: 随笔, en: Life }
+
+# Interface text for each language.
+zh:
+  html_lang: zh-CN
+  short: 中                  # language switch
+  name: 中文                 # badge for posts that exist only in this language
+  index: /blog/
+  feed: /blog/feed.xml
+  title: 博客
+  home: 主页
+  all: 全部
+  date_format: "%Y年%-m月%-d日"
+  read_time: "约 %n 分钟"
+  toc: 目录
+  older: 上一篇
+  newer: 下一篇
+  empty: 还没有文章。
+  missing: 暂无中文版本       # tooltip on 中 when a post has no Chinese version
+
+en:
+  html_lang: en
+  short: EN
+  name: English
+  index: /en/blog/
+  feed: /en/blog/feed.xml
+  title: Blog
+  home: Home
+  all: All
+  date_format: "%b %-d, %Y"
+  read_time: "%n min read"
+  toc: Contents
+  older: Previous
+  newer: Next
+  empty: No posts yet.
+  missing: No English version yet
+  translated: Translated from the Chinese original.   # note on English posts that have a Chinese version
+  original: Read in Chinese

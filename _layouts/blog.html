@@ -1,0 +1,71 @@
+{% comment %}
+  Blog index (/blog/ in Chinese, /en/blog/ in English; the language comes from page.lang).
+  Lists every post in this language, plus posts that only exist in the other one.
+{% endcomment %}
+{% assign L = page.lang | default: 'zh' %}
+{% assign t = site.data.blog[L] %}
+{% if L == 'en' %}{% assign other = 'zh' %}{% else %}{% assign other = 'en' %}{% endif %}
+{% assign switch_url = site.data.blog[other].index %}
+<!doctype html>
+<html lang="{{ t.html_lang }}" class="no-js">
+<head>
+  {% include blog-head.html title=page.title description=page.description %}
+  <script>
+    // index pages follow the language last picked with the 中 / EN switch
+    try { if (localStorage.getItem('blog-lang') === '{{ other }}') location.replace('{{ switch_url }}' + location.hash); } catch (e) {}
+  </script>
+</head>
+<body class="bl-page bl-index">
+  {% include blog-header.html %}
+
+  <main class="bl-main">
+    <h1 class="bl-title">{{ page.title }}</h1>
+    <div class="bl-intro">{{ content }}</div>
+
+    <nav class="bl-filter" aria-label="{{ t.title }}">
+      <button type="button" data-cat="" aria-pressed="true">{{ t.all }}</button>
+      {% for c in site.data.blog.categories %}
+      <button type="button" data-cat="{{ c[0] }}" aria-pressed="false">{{ c[1][L] }}</button>
+      {% endfor %}
+    </nav>
+
+    {% assign year = '' %}
+    {% for p in site.posts %}
+      {% if p.lang != L %}
+        {% assign twin = site.posts | where: 'slug', p.slug | where: 'lang', L | first %}
+        {% if twin %}{% continue %}{% endif %}
+      {% endif %}
+      {% assign y = p.date | date: '%Y' %}
+      {% if y != year %}
+        {% unless year == '' %}</ol></section>{% endunless %}
+        <section class="bl-year">
+          <h2 class="bl-year-label">{{ y }}</h2>
+          <ol class="bl-list">
+        {% assign year = y %}
+      {% endif %}
+      {% assign cat = p.categories.first %}
+      {% assign desc = p.description | default: p.excerpt | strip_html | strip_newlines | strip | truncate: 200 %}
+      <li class="bl-item" data-cat="{{ cat }}">
+        <time class="bl-item-date" datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: '%m-%d' }}</time>
+        <div class="bl-item-body">
+          <a class="bl-item-title" href="{{ p.url }}"{% if p.lang != L %} lang="{{ site.data.blog[p.lang].html_lang }}"{% endif %}>{{ p.title }}</a>
+          {% if p.lang != L %}<span class="bl-badge">{{ site.data.blog[p.lang].name }}</span>{% endif %}
+          {% if desc != '' %}<p class="bl-item-desc">{{ desc }}</p>{% endif %}
+        </div>
+        {% if cat %}<span class="bl-cat bl-cat--{{ cat }}">{{ site.data.blog.categories[cat][L] | default: cat }}</span>{% endif %}
+      </li>
+    {% endfor %}
+    {% if year == '' %}
+    <p class="bl-empty">{{ t.empty }}</p>
+    {% else %}
+          </ol>
+        </section>
+    <p class="bl-empty bl-filter-empty" hidden>{{ t.empty }}</p>
+    {% endif %}
+  </main>
+
+  <footer class="bl-footer">© {{ site.time | date: '%Y' }} {{ site.author.name }} · <a href="{{ t.feed }}">RSS</a></footer>
+
+  <script src="/assets/js/blog.js" defer></script>
+</body>
+</html>
